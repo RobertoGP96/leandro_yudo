@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <filter id="hardShadow" height="130%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="3" dy="3" result="offsetblur"/>
+      <feFlood flood-color="#000000" flood-opacity="0.2"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge> 
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/> 
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Circular Base (Kodokan styling) -->
+  <circle cx="256" cy="256" r="230" fill="#0055a4" stroke="#e0eaf5" stroke-width="15"/>
+  <circle cx="256" cy="256" r="190" fill="#ffffff" />
+  
+  <!-- Central Red Sun / Symbol of Japan/Judo Spirit -->
+  <circle cx="256" cy="256" r="60" fill="#ef3340" />
+  
+  <!-- Stylized Judoka Throw Silhouette (Negative Space or Strong Contrast) -->
+  <path d="M180,360 C140,320 372,120 372,120 L392,140 C392,140 300,280 280,300 C260,320 220,400 180,360 Z" fill="#0055a4" />
+  
+  <!-- Abstract Belt Swish -->
+  <path d="M120,280 Q256,450 392,280" fill="none" stroke="#00366f" stroke-width="20" stroke-linecap="round" />
+  
+  <!-- Kanji for Judo (Optional, simplified geometric shapes) -->
+  <!-- Just bold geometric shapes to represent strength -->
+  <rect x="236" y="160" width="40" height="192" fill="#ffffff" rx="5" />
+  <rect x="180" y="236" width="152" height="40" fill="#ffffff" rx="5" />
+
+</svg>
