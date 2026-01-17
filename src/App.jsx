@@ -52,12 +52,7 @@ function App() {
               >
                 <Calendar size={18} /> Clases
               </a>
-              <a
-                href="#contact"
-                className="px-5 py-2.5 bg-judo-blue-600 text-white rounded-full font-semibold hover:bg-judo-blue-700 transition-colors shadow-lg shadow-judo-blue-200"
-              >
-                Reserva Gratis
-              </a>
+              
             </div>
 
             {/* Mobile Menu Button */}
