@@ -24,11 +24,11 @@ function App() {
             <div className="flex items-center gap-3">
               <img
                 src="/judo-logo-custom.svg"
-                alt="Leandro Yudo Logo"
+                alt="Leandro Judo Logo"
                 className="w-16 h-16 object-contain"
               />
               <span className="text-xl font-bold text-gray-900 tracking-tight">
-                Leandro Yudo
+                Leandro Judo
               </span>
             </div>
 
@@ -97,7 +97,7 @@ function App() {
                 </a>
                 <a
                   href="#contact"
-                  className="flex items-center gap-3 px-3 py-2 text-base font-medium text-judo-blue-600 font-bold hover:bg-gray-50 rounded-lg"
+                  className="flex items-center gap-3 px-3 py-2 text-base text-judo-blue-600 font-bold hover:bg-gray-50 rounded-lg"
                 >
                   <Mail size={20} /> Contacto
                 </a>
@@ -378,7 +378,7 @@ function App() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-1">
               <span className="text-2xl font-bold tracking-tight mb-4 block">
-                Leandro Yudo
+                Leandro Judo
               </span>
               <p className="text-gray-400 text-sm">
                 Escuela de Judo profesional.
@@ -413,13 +413,13 @@ function App() {
                   <Phone size={16} /> +1 234 567 890
                 </li>
                 <li className="flex items-center gap-2">
-                  <Mail size={16} /> info@leandroyudo.com
+                  <Mail size={16} /> info@leandrojudo.com
                 </li>
               </ul>
             </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-            © 2026 Leandro Yudo. Todos los derechos reservados.
+            © 2026 Leandro Judo. Todos los derechos reservados.
           </div>
         </div>
       </footer>
