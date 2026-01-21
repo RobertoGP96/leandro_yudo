@@ -323,7 +323,7 @@ function App() {
       </section>
 
       {/* Features/Values Section - Updated for Flow */}
-      <section id="clases" className="py-24 bg-gray-50">
+      <section id="classes" className="py-24 bg-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -357,7 +357,7 @@ function App() {
               <motion.div
                 key={i}
                 whileHover={{ y: -5 }}
-                className="p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all"
+                className="p-8 rounded-2xl border-2 border-gray-500/50 hover:shadow-xl transition-all"
               >
                 <div
                   className={`w-12 h-12 ${item.color} rounded-xl flex items-center justify-center mb-6 shadow-sm`}
