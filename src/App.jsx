@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import {
   Menu,
   X,
@@ -9,8 +10,14 @@ import {
   Home,
   Users,
   Calendar,
+  Instagram,
+  Facebook,
+  Twitter,
+  Youtube,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect } from "react";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,13 +29,8 @@ function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
             <div className="flex items-center gap-3">
-              <img
-                src="/judo-logo-custom.svg"
-                alt="Leandro Judo Logo"
-                className="w-16 h-16 object-contain"
-              />
-              <span className="text-xl font-bold text-gray-900 tracking-tight">
-                Leandro Judo
+              <span className="font-[Hiromisake] text-4xl tracking-tight text-judo-blue-600">
+                DOJO RYU SUI
               </span>
             </div>
 
@@ -52,7 +54,6 @@ function App() {
               >
                 <Calendar size={18} /> Clases
               </a>
-              
             </div>
 
             {/* Mobile Menu Button */}
@@ -115,9 +116,9 @@ function App() {
         {/* Background Image & Gradient Overlay */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/judo-hero.png')" }}
+          style={{ backgroundImage: "url('/images/4.jpeg')" }}
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/20 sm:to-transparent"></div>
+          <div className="absolute inset-0 bg-linear-to-r from-white/95 via-white/80 to-white/20 sm:to-transparent"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -140,13 +141,12 @@ function App() {
                 academia líder en enseñanza de Judo, donde la disciplina se
                 encuentra con la pasión.
               </p>
+
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-4 bg-judo-blue-600 text-white rounded-xl font-bold text-lg hover:bg-judo-blue-700 transition-all shadow-xl shadow-judo-blue-200 hover:shadow-2xl hover:translate-y-[-2px] flex items-center justify-center gap-2 cursor-pointer">
-                  Empezar Ahora <ChevronRight size={20} />
-                </button>
-                <button className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-700 border-2 border-gray-200 rounded-xl font-bold text-lg hover:border-gray-300 hover:bg-white transition-all flex items-center justify-center gap-2 cursor-pointer">
+                
+                <a href="#horarios" className="px-8 py-4 bg-white/80 backdrop-blur-sm text-gray-700 border-2 border-gray-200 rounded-xl font-bold text-lg hover:border-gray-300 hover:bg-white transition-all flex items-center justify-center gap-2">
                   Ver Horarios
-                </button>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -177,7 +177,7 @@ function App() {
                 alt="Olympic Throw High Amplitude"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-2xl font-bold mb-2">Técnica Perfecta</h3>
                   <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -197,7 +197,7 @@ function App() {
                 alt="Gold Medal Celebration"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-2xl font-bold mb-2">Gloria Olímpica</h3>
                   <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -217,7 +217,7 @@ function App() {
                 alt="Heavyweight Grip Fight"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end p-8">
                 <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-2xl font-bold mb-2">Poder Absoluto</h3>
                   <p className="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -275,7 +275,7 @@ function App() {
                   "Mejora la concentración",
                 ].map((benefit, i) => (
                   <div key={i} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 rounded-full bg-green-100 text-green-600 flex items-center justify-center shrink-0">
                       <svg
                         className="w-4 h-4"
                         fill="none"
@@ -309,7 +309,7 @@ function App() {
                   alt="Jigoro Kano"
                   className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent flex items-end p-8">
                   <p className="text-white font-medium italic text-lg">
                     "Lo importante no es ser mejor que otros, sino ser mejor que
                     ayer." - Jigoro Kano
@@ -323,14 +323,16 @@ function App() {
       </section>
 
       {/* Features/Values Section - Updated for Flow */}
-      <section className="py-24 bg-gray-50">
+      <section id="clases" className="py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Pilares de Nuestra Enseñanza
             </h2>
             <p className="text-gray-600">
-              El judo fortalece el cuerpo, agudiza la mente y nutre el espíritu.
+              Mejora la coordinación motriz, el equilibrio y la agilidad
+              infantil, a través de la práctica del judo. Optimizaa la capacidad
+              de tomar decisiones, controlar el estrés y ansiedad.
             </p>
           </div>
 
@@ -372,19 +374,52 @@ function App() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      {/* Gallery Section */}
+      <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="col-span-1 md:col-span-1">
-              <span className="text-2xl font-bold tracking-tight mb-4 block">
-                Leandro Judo
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Galería</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Momentos inolvidables en nuestro dojo. Entrenamientos, torneos y
+              eventos especiales que marcan nuestro camino en el Judo.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <EmblaCarouselWithAutoScroll />
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer id="horarios" className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-5 gap-8">
+            <div className="col-span-1 md:col-span-1 space-y-2">
+              <span className="font-[Hiromisake] text-2xl font-bold tracking-tight mb-4 block">
+                DOJO RYU SUI
               </span>
               <p className="text-gray-400 text-sm">
-                Escuela de Judo profesional.
+                Cultivamos principios, actitudes y aptitudes, mediante la
+                enseñanza y la práctica del Judo.
               </p>
             </div>
 
+            <div className="space-y-2">
+              <h2>Horarios</h2>
+              <p className="text-gray-400 text-sm">
+                Lunes, Miércoles y Viernes
+              </p>
+              <ul>
+                <li className="text-gray-400 text-sm">- 6:00-7:00 pm niños</li>
+                <li className="text-gray-400 text-sm">
+                  - 7:00-8:00 pm jóvenes
+                </li>
+                <li className="text-gray-400 text-sm">
+                  - 8:00-9:00 pm adultos y jóvenes
+                </li>
+              </ul>
+            </div>
             <div>
               <h4 className="font-bold mb-4">Enlaces</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
@@ -394,7 +429,7 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition-colors">
+                  <a href="#clases" className="hover:text-white transition-colors">
                     Clases
                   </a>
                 </li>
@@ -410,19 +445,312 @@ function App() {
               <h4 className="font-bold mb-4">Contacto</h4>
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li className="flex items-center gap-2">
-                  <Phone size={16} /> +1 234 567 890
+                  <Phone size={16} /> +52 998 396 8878
                 </li>
                 <li className="flex items-center gap-2">
-                  <Mail size={16} /> info@leandrojudo.com
+                  <Mail size={16} /> e361259@gmail.com
                 </li>
               </ul>
             </div>
+
+            <div>
+              <h4 className="font-bold mb-4">Síguenos</h4>
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.facebook.com/share/1HQqVthzTw/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-blue-600 transition-colors"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={20} />
+                </a>
+
+                <a
+                  href="https://youtube.com/shorts/buMGq1HzFoI?feature=shared"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-red-600 transition-colors"
+                  aria-label="YouTube"
+                >
+                  <Youtube size={20} />
+                </a>
+              </div>
+            </div>
           </div>
           <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-            © 2026 Leandro Judo. Todos los derechos reservados.
+            2026 DOJO RYU SUI. Todos los derechos reservados.
           </div>
         </div>
       </footer>
+    </div>
+  );
+}
+
+import {  useRef } from "react";
+
+function EmblaCarouselWithAutoScroll() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    loop: true,
+    align: "center",
+    containScroll: "trimSnaps",
+    dragFree: false,
+  });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState([]);
+  const videoRefs = useRef({});
+  const autoScrollRef = useRef(null);
+
+  const scrollTo = useCallback(
+    (index) => {
+      if (!emblaApi) return;
+      emblaApi.scrollTo(index);
+    },
+    [emblaApi],
+  );
+
+  const pauseAllVideos = useCallback(() => {
+    Object.values(videoRefs.current).forEach((video) => {
+      if (video) {
+        video.pause();
+      }
+    });
+  }, []);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    pauseAllVideos();
+    setSelectedIndex(emblaApi.selectedScrollSnap());
+  }, [emblaApi, pauseAllVideos]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    // Auto-scroll every 5 seconds
+    const startAutoScroll = () => {
+      autoScrollRef.current = setInterval(() => {
+        if (emblaApi.canScrollNext()) {
+          emblaApi.scrollNext();
+        } else {
+          emblaApi.scrollTo(0);
+        }
+      }, 5000);
+    };
+
+    const stopAutoScroll = () => {
+      if (autoScrollRef.current) {
+        clearInterval(autoScrollRef.current);
+        autoScrollRef.current = null;
+      }
+    };
+
+    // Initialize
+    onSelect();
+    setScrollSnaps(emblaApi.scrollSnapList());
+    startAutoScroll();
+
+    // Event listeners
+    emblaApi.on("select", onSelect);
+    emblaApi.on("pointerDown", stopAutoScroll);
+    emblaApi.on("pointerUp", startAutoScroll);
+
+    // Cleanup
+    return () => {
+      stopAutoScroll();
+      emblaApi.off("select", onSelect);
+      emblaApi.off("pointerDown", stopAutoScroll);
+      emblaApi.off("pointerUp", startAutoScroll);
+    };
+  }, [emblaApi, onSelect]);
+
+  const slides = [
+    {
+      type: "image",
+      src: "/images/2.jpeg",
+      alt: "Entrenamiento de Judo",
+      title: "Entrenamiento de Judo",
+    },
+    {
+      type: "image",
+      src: "/images/3.jpeg",
+      alt: "Clase de Judo",
+      title: "Clase de Judo",
+    },
+    {
+      type: "image",
+      src: "/images/4.jpeg",
+      alt: "Competencia de Judo",
+      title: "Competencia de Judo",
+    },
+    {
+      type: "image",
+      src: "/images/7.jpeg",
+      alt: "Dojo",
+      title: "Entrenamiento en el Dojo",
+    },
+    {
+      type: "image",
+      src: "/images/8.jpeg",
+      alt: "Dojo",
+      title: "Entrenamiento en el Dojo",
+    },
+    {
+      type: "image",
+      src: "/images/9.jpeg",
+      alt: "Dojo",
+      title: "Entrenamiento en el Dojo",
+    },
+    {
+      type: "image",
+      src: "/images/10.jpeg",
+      alt: "Dojo",
+      title: "Dojo",
+    },
+  ];
+
+  const handleVideoClick = (index) => {
+    const video = videoRefs.current[index];
+    if (video) {
+      if (video.paused) {
+        pauseAllVideos();
+        video.play();
+      } else {
+        video.pause();
+      }
+    }
+  };
+
+  return (
+    <div className="w-full max-w-6xl mx-auto px-4 py-8">
+      <div className="embla">
+        <div className="embla__viewport" ref={emblaRef}>
+          <div className="embla__container">
+            {slides.map((slide, index) => (
+              <div className="embla__slide" key={index}>
+                <div className="relative h-96 mx-2 overflow-hidden rounded-lg bg-black shadow-lg">
+                  {slide.type === "image" ? (
+                    <img
+                      src={slide.src}
+                      alt={slide.alt}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div
+                      className="relative w-full h-full cursor-pointer group"
+                      onClick={() => handleVideoClick(index)}
+                    >
+                      <video
+                        ref={(el) => (videoRefs.current[index] = el)}
+                        className="w-full h-full object-cover"
+                        poster={slide.poster}
+                        preload="metadata"
+                        playsInline
+                      >
+                        <source src={slide.src} type="video/mp4" />
+                        Tu navegador no soporta la reproducción de videos.
+                      </video>
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/10 transition-all duration-300 pointer-events-none">
+                        <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+                          <svg
+                            className="w-10 h-10 text-blue-600 ml-1"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/90 via-black/50 to-transparent p-4">
+                    <p className="text-white text-lg font-semibold drop-shadow-lg">
+                      {slide.title}
+                    </p>
+                    {slide.type === "video" && (
+                      <div className="flex items-center mt-1">
+                        <svg
+                          className="w-4 h-4 text-white mr-1"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                        >
+                          <path d="M6.3 2.841A1.5 1.5 0 004 4.11v11.78a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                        </svg>
+                        <span className="text-sm text-white/90 drop-shadow">
+                          Click para reproducir
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center mt-6 space-x-2">
+          {scrollSnaps.map((_, index) => (
+            <button
+              key={index}
+              className={`h-3 rounded-full transition-all duration-300 ${
+                index === selectedIndex
+                  ? "bg-blue-600 w-8"
+                  : "bg-gray-300 hover:bg-blue-400 w-3"
+              }`}
+              type="button"
+              onClick={() => scrollTo(index)}
+              aria-label={`Ir a la diapositiva ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        <style jsx global>{`
+          .embla {
+            overflow: hidden;
+            position: relative;
+          }
+          .embla__viewport {
+            overflow: hidden;
+            width: 100%;
+          }
+          .embla__viewport.is-draggable {
+            cursor: move;
+            cursor: grab;
+          }
+          .embla__viewport.is-dragging {
+            cursor: grabbing;
+          }
+          .embla__container {
+            display: flex;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            padding: 10px 0;
+          }
+          .embla__slide {
+            position: relative;
+            flex: 0 0 90%;
+            min-width: 0;
+            margin: 0 8px;
+            transition: transform 0.3s ease;
+          }
+          @media (min-width: 640px) {
+            .embla__slide {
+              flex: 0 0 60%;
+            }
+          }
+          @media (min-width: 768px) {
+            .embla__slide {
+              flex: 0 0 45%;
+            }
+          }
+          @media (min-width: 1024px) {
+            .embla__slide {
+              flex: 0 0 32%;
+            }
+          }
+        `}</style>
+      </div>
     </div>
   );
 }
